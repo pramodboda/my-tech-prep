@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-ink: #1C1B1A;
+  --color-ink-soft: #6B6862;
+  --color-border: #E5E2DC;
+  --color-deep: #3454D1;
+  --color-deep-soft: #EBEFFC;
+  --color-short: #C77D2E;
+  --color-short-soft: #FBF1E6;
+
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.editor-deep .ProseMirror {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+  min-height: 3rem;
+  outline: none;
+}
+.editor-deep .ProseMirror p { margin: 0.6em 0; }
+.editor-deep .ProseMirror code {
+  font-family: var(--font-mono);
+  background: var(--color-deep-soft);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+.editor-deep .ProseMirror pre {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.9em 1em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+.editor-deep .ProseMirror pre code { background: none; padding: 0; }
+
+.editor-short .ProseMirror {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink);
+  min-height: 2.5rem;
+  outline: none;
+}
+.editor-short .ProseMirror code {
+  font-family: var(--font-mono);
+  background: var(--color-short-soft);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--color-ink-soft);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
