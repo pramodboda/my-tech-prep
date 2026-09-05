@@ -17,7 +17,7 @@ function useDebouncedSave(delayMs = 500) {
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(fn, delayMs);
     },
-    [delayMs]
+    [delayMs],
   );
 }
 
@@ -39,7 +39,9 @@ export default function QnACard({ question, onLocalUpdate, onDelete }: Props) {
   return (
     <div
       className="rounded-xl border bg-surface p-5 mb-4 transition-colors"
-      style={{ borderColor: isDeep ? "var(--color-deep)" : "var(--color-short)" }}
+      style={{
+        borderColor: isDeep ? "var(--color-deep)" : "var(--color-short)",
+      }}
     >
       <div className="flex items-start justify-between gap-4 mb-3">
         <input
@@ -48,7 +50,10 @@ export default function QnACard({ question, onLocalUpdate, onDelete }: Props) {
           placeholder="Question…"
           className="flex-1 font-sans font-semibold text-lg bg-transparent outline-none placeholder:text-ink-soft/50"
         />
-        <button onClick={onDelete} className="no-print text-xs text-ink-soft hover:text-red-600 shrink-0 mt-1">
+        <button
+          onClick={onDelete}
+          className="no-print text-xs text-ink-soft hover:text-red-600 shrink-0 mt-1"
+        >
           Delete
         </button>
       </div>
